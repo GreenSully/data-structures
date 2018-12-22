@@ -213,7 +213,14 @@ void BinaryTree<T>::_remove(BTNode<T> *n)
 	{
 		_remove(n->left);
 		_remove(n->right);
-
+		
+		if(n->parent->left==n){
+			n->parent->left=nullptr;
+		}
+		if(n->parent->right==n){
+			n->parent->right=nullptr;
+		}
+		
 		delete n;
 
 		m_size--;
